@@ -12,6 +12,12 @@ env:
     - LATEST=1 MAJOR_VERSION=8.0 FULL_VERSION=8.0.0 DOWNLOAD_URL=https://s3.amazonaws.com/files.inductiveautomation.com/release/ia/build8.0.0/20190407-1858/zip-installers/Ignition-linux-64-8.0.0.zip DOWNLOAD_SHA256=6e793f00124a13c00f37ea717ababae95a4e9f8702c1639040021862d08a625e
     - LATEST=1 MAJOR_VERSION=8.0 FULL_VERSION=8.0.0 EDITION=edge DOWNLOAD_URL=https://s3.amazonaws.com/files.inductiveautomation.com/release/ia/build8.0.0/20190407-1858/zip-installers/Ignition-Edge-linux-64-8.0.0.zip DOWNLOAD_SHA256=bce3b8c62692db9cb7a1c9af7beaf9ee24a9bfe7e76798f1af424ee1609a3c6e
 
+jobs:
+  include:
+    - # require the branch name to be master (note for PRs this is the base branch name)
+      if: branch = master
+      env: MAJOR_VERSION=8.0
+
 before_script:
   # Specify image as "kcollins/ignition:7.9.7" or "kcollins/ignition:7.9.7-edge" if edition is set to edge
   - FULL_IMAGE="$IMAGE_NAME:$FULL_VERSION${EDITION:+-$EDITION}"
