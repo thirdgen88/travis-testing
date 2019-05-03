@@ -23,8 +23,7 @@ matrix:
 jobs:
   include:
     - # require the branch name to be master (note for PRs this is the base branch name)
-      if: branch = master
-      env: MAJOR_VERSION=8.0
+      if: branch = master AND env(LATEST) IS present
 
 before_script:
   # Specify image as "kcollins/ignition:7.9.7" or "kcollins/ignition:7.9.7-edge" if edition is set to edge
