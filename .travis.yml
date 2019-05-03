@@ -13,7 +13,6 @@ env:
     - LATEST=1 MAJOR_VERSION=8.0 FULL_VERSION=8.0.0 EDITION=edge DOWNLOAD_URL=https://s3.amazonaws.com/files.inductiveautomation.com/release/ia/build8.0.0/20190407-1858/zip-installers/Ignition-Edge-linux-64-8.0.0.zip DOWNLOAD_SHA256=bce3b8c62692db9cb7a1c9af7beaf9ee24a9bfe7e76798f1af424ee1609a3c6e
 
 before_script:
-  - cd "$MAJOR_VERSION"
   # Specify image as "kcollins/ignition:7.9.7" or "kcollins/ignition:7.9.7-edge" if edition is set to edge
   - FULL_IMAGE="$IMAGE_NAME:$FULL_VERSION${EDITION:+-$EDITION}"
   - MAJOR_IMAGE="$IMAGE_NAME:$MAJOR_VERSION${EDITION:+-$EDITION}"
